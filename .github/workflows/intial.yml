@@ -1,0 +1,22 @@
+name: Basic Workflow for C / C++ programming
+
+on: [push]
+
+jobs:
+  build-project:
+    name: Build project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check gcc compiler version
+        run: gcc --version
+
+      - name: Compile C code
+        run: gcc main.c -o main.o
+
+      - name: Run C code
+        run: ./main.o
+
+      - name: Check if Cmake is available
+        run: cmake --version
